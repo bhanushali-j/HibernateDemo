@@ -24,6 +24,6 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... arg0) throws Exception {
-		repository.playWithEntityManager();
+//		repository.playWithEntityManager();
 	}	
 }
