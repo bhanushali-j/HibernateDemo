@@ -1,12 +1,15 @@
 package com.in28minutes.jpa.hibernate.demo.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -27,6 +30,9 @@ public class Course {
 	
 	@UpdateTimestamp
 	private LocalDateTime lastUpdatedDate;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="course")
+	private List<Review> reviewList;
 
 	protected Course() {
 	}
@@ -45,6 +51,17 @@ public class Course {
 
 	public Long getId() {
 		return id;
+	}
+
+	public List<Review> getReviewList() {
+		return reviewList;
+	}
+
+	public void addReview(Review review) {
+		this.reviewList.add(review);
+	}
+	public void removeReview(Review review) {
+		this.reviewList.remove(review);
 	}
 
 	@Override

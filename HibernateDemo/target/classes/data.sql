@@ -8,11 +8,11 @@ insert into passport(id, number) values(40002,'F67890');
 insert into passport(id, number) values(40003,'G89075');
 
 
-insert into student(id, name,passport_id) values(20001,'Goku','40001');
-insert into student(id, name,passport_id) values(20002,'Naruto','40002');
-insert into student(id, name,passport_id) values(20003,'Sasuke','40003');
+insert into student(id, name,passport_id) values(20001,'Goku',40001);
+insert into student(id, name,passport_id) values(20002,'Naruto',40002);
+insert into student(id, name,passport_id) values(20003,'Sasuke',40003);
 
 
-insert into review(id, rating,description) values(50001,'5','Excellent course');
-insert into review(id, rating,description) values(50002,'4','good course');
-insert into review(id, rating,description) values(50003,'4','Very helpful');
+insert into review(id, rating,description,course_id) values(50001,'5','Excellent course',10001);
+insert into review(id, rating,description,course_id) values(50002,'4','good course',10001);
+insert into review(id, rating,description,course_id) values(50003,'4','Very helpful',10003);

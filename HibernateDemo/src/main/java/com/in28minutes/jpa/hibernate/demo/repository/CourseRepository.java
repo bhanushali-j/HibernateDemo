@@ -1,5 +1,7 @@
 package com.in28minutes.jpa.hibernate.demo.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
+import com.in28minutes.jpa.hibernate.demo.entity.Review;
 
 @Repository
 @Transactional
@@ -44,5 +47,15 @@ public class CourseRepository {
 		em.persist(course1);
 		course1.setName("Angular Updated !!!!!");
 		em.flush();
+	}
+	
+	public void addReviewstoCourse(Long courseId,List<Review> reviewList) {
+		Course course=em.find(Course.class,courseId);
+		for(Review review:reviewList) {
+			course.addReview(review);
+			review.setCourse(course);
+			em.persist(review);
+		}
+		
 	}
 }
