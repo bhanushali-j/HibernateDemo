@@ -29,5 +29,6 @@ public class DemoApplication implements CommandLineRunner{
 	public void run(String... arg0) throws Exception {
 //		repository.playWithEntityManager();
 		studentRepository.saveStudentWithPassport();
+		studentRepository.playWithEntityManager();
 	}	
 }

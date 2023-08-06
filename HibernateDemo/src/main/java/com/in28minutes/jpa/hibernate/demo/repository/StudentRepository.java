@@ -40,11 +40,17 @@ public class StudentRepository {
 		em.remove(student);
 	}
 
-	public void playWithEntityManager() {
-		Student student = new Student("Angular");
-		em.persist(student);
-		student.setName("Angular Updated !!!!!");
-		em.flush();
+	public void playWithEntityManager(){
+		try {
+			Student student = new Student("Vegeta");
+			em.persist(student);
+			em.flush();
+			student.setName("Prince Vegeta !!!");
+			throw new Exception("Some exception for rollback the above changes");
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void saveStudentWithPassport() {
@@ -55,5 +61,22 @@ public class StudentRepository {
 		Student student=new Student("Itachi");
 		student.setPassport(passport);
 		em.persist(student);
+	}
+	
+	public void understandTransactionManagement() {
+		
+		Student student=em.find(Student.class,20003L);
+		
+		Passport passport=student.getPassport();
+		
+		logger.info("student -> {}",student);
+		logger.info("Passport -> {}",student.getPassport());
+		
+		passport.setName("F12345");
+		
+		student.setName("Goku Updated !");
+		
+		logger.info("student -> {}",student);
+		logger.info("Passport -> {}",student.getPassport());
 	}
 }
