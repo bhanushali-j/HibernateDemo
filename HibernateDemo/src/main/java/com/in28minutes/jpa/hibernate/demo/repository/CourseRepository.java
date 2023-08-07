@@ -55,6 +55,7 @@ public class CourseRepository {
 			course.addReview(review);
 			review.setCourse(course);
 			em.persist(review);
+			
 		}
 		
 	}

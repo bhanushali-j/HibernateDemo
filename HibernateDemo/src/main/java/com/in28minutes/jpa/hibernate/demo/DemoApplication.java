@@ -32,9 +32,9 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... arg0) throws Exception {
 //		repository.playWithEntityManager();
-		studentRepository.saveStudentWithPassport();
-		studentRepository.playWithEntityManager();
-		
+//		studentRepository.saveStudentWithPassport();
+//		studentRepository.playWithEntityManager();
+//		
 		
 		List<Review> reviewList= new ArrayList<>();
 		reviewList.add(new Review("5","Flabbergasting"));
