@@ -31,8 +31,8 @@ public class Student {
 	joinColumns = @JoinColumn(name="STUDENT_ID"),
 	inverseJoinColumns = @JoinColumn(name="COURSE_ID")
 	)
-	//joinColumn - STUDENT_ID
-	//inverseJoineCOlumn - COURSE_ID
+//	joinColumn - STUDENT_ID
+//	inverseJoineCOlumn - COURSE_ID
 	private List<Course> courseList;
 	
 	protected Student() {

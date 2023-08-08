@@ -46,5 +46,15 @@ public class StudentRepositoryTest {
 	public void understandTransactionManagementTest() {
 		repository.understandTransactionManagement();
 	}
+	
+	@Test
+	@Transactional
+	public void retrieveCourseFromStudent() {
+		
+		Student student=em.find(Student.class,20001L);
+		logger.info("student -> {}",student);
+		
+		logger.info("Passport -> {}",student.getCourseList());
+	}
 
 }
