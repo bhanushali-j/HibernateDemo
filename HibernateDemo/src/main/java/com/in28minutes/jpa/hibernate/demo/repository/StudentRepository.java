@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Passport;
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
 
@@ -80,5 +81,27 @@ public class StudentRepository {
 		logger.info("Passport -> {}",student.getPassport());
 	}
 	
+	public void insertHardcodedStudentAndCourse() {
+		Student student=new Student("Kakashi");
+		Course course = new Course("Spring Cloud Microservices");
+		
+		em.persist(student);
+		em.persist(course);
 	
+		student.addCourse(course);
+		course.addStudent(student);
+		
+	}
+	
+	public void insertStudentAndCourse(Student student,Course course) {
+//		Student student=new Student("Kakashi");
+//		Course course = new Course("Spring Cloud Microservices");
+//		
+		em.persist(student);
+		em.persist(course);
+	
+		student.addCourse(course);
+		course.addStudent(student);
+		
+	}
 }

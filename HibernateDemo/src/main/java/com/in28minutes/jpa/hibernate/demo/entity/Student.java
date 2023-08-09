@@ -1,6 +1,5 @@
 package com.in28minutes.jpa.hibernate.demo.entity;
 
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -22,19 +21,16 @@ public class Student {
 
 	@Column(nullable = false)
 	private String name;
-	
+
 	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
 
 	@ManyToMany
-	@JoinTable(name="STUDENT_COURSE",
-	joinColumns = @JoinColumn(name="STUDENT_ID"),
-	inverseJoinColumns = @JoinColumn(name="COURSE_ID")
-	)
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = @JoinColumn(name = "STUDENT_ID"), inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
 //	joinColumn - STUDENT_ID
 //	inverseJoineCOlumn - COURSE_ID
 	private List<Course> courseList;
-	
+
 	protected Student() {
 	}
 
@@ -61,8 +57,6 @@ public class Student {
 	public void setPassport(Passport passport) {
 		this.passport = passport;
 	}
-	
-	
 
 	public List<Course> getCourseList() {
 		return courseList;
@@ -72,14 +66,9 @@ public class Student {
 		this.courseList.add(course);
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", passport=" + passport + "]";
 	}
 
-	
 }
