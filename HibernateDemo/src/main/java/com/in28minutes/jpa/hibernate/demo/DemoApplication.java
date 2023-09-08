@@ -50,16 +50,11 @@ public class DemoApplication implements CommandLineRunner{
 		
 //		studentRepository.insertHardcodedStudentAndCourse();
 //		studentRepository.insertStudentAndCourse(new Student("kakashi"), new Course("Spring Cloud Microservices"));
-<<<<<<< HEAD
-=======
 		
 		employeeRepository.insert(new FullTimeEmployee("Gara", new BigDecimal("10000")));
 		employeeRepository.insert(new PartTimeEmployee("Sai", new BigDecimal("50")));
 		
 		logger.info("All Employees -> {}",employeeRepository.retrieveAllEmployees());
-//		
-		
->>>>>>> 19b4f7b99655a7f4080a4c2c2f3fea0ffd9e04c1
 		
 	}	
 }
