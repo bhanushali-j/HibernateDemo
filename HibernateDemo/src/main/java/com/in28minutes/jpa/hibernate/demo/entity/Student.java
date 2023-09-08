@@ -1,5 +1,6 @@
 package com.in28minutes.jpa.hibernate.demo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ public class Student {
 	@JoinTable(name = "STUDENT_COURSE", joinColumns = @JoinColumn(name = "STUDENT_ID"), inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
 //	joinColumn - STUDENT_ID
 //	inverseJoineCOlumn - COURSE_ID
-	private List<Course> courseList;
+	private List<Course> courseList=new ArrayList<>();
 
 	protected Student() {
 	}

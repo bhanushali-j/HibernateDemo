@@ -1,6 +1,7 @@
 package com.in28minutes.jpa.hibernate.demo.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -33,10 +34,10 @@ public class Course {
 	private LocalDateTime lastUpdatedDate;
 	
 	@OneToMany(fetch = FetchType.LAZY,mappedBy="course")
-	private List<Review> reviewList;
+	private List<Review> reviewList=new ArrayList<>();
 	
 	@ManyToMany(mappedBy = "courseList")
-	private List<Student> studentList;
+	private List<Student> studentList=new ArrayList<>();
 
 	protected Course() {
 	}
