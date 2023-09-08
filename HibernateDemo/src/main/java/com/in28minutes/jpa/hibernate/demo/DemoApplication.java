@@ -41,7 +41,7 @@ public class DemoApplication implements CommandLineRunner{
 		
 		
 //		studentRepository.insertHardcodedStudentAndCourse();
-		studentRepository.insertStudentAndCourse(new Student("kakashi"), new Course("Spring Cloud Microservices"));
+//		studentRepository.insertStudentAndCourse(new Student("kakashi"), new Course("Spring Cloud Microservices"));
 		
 	}	
 }
